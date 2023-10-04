@@ -57,7 +57,7 @@ function createVenueDetails(venue, id, features) {
     capacity: venue.capacity,
     name: venue.name,
     albumId: venue.albumId,
-    description: faker.lorem.sentences({min: 2 , max: 7}),
+    description: faker.lorem.sentences({ min: 2, max: 7 }),
     features: faker.helpers.arrayElements(features, { min: 2, max: 4 }),
     sleepingDetails: {
       maxCapacity: venue.capacity,
@@ -90,7 +90,7 @@ export function generateData(venuesNumber) {
       idForDetails[i],
       listOfFeatures,
     );
-    venues.push(createVenue(i));
+    venues.push(venue);
     venuesDetails.push(venueDetails);
   }
   const data = {
@@ -99,5 +99,3 @@ export function generateData(venuesNumber) {
   };
   return data;
 }
-
-console.log(generateData(2));

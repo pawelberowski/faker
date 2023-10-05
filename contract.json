@@ -1,54 +1,95 @@
-"venues": [
 {
-"id": 1,
-"location": {
-"postalCode": "38-700",
-"name": "ustrzyki dolne"
-},
-"pricePerNightInEUR": 20.94, // Prices are in euro, it's up to you to evaluate it to PLN, use any free currency exchange API, example: https://exchangeratesapi.io/
-"rating": 4.8,
-"capacity": 4,
-"name": "enchanted hut",
-"albumId": 1  // id of the album that matches with albumId in /photos endpoint - https://jsonplaceholder.typicode.com/photos
+  "venues": [
+    {
+      "id": 1,
+      "location": {
+        "postalCode": "38-700",
+        "name": "ustrzyki dolne"
+      },
+      "pricePerNightInEUR": 20.94,
+      "rating": 4.8,
+      "capacity": 4,
+      "name": "enchanted hut",
+      "albumId": 1
+    }
+  ],
+  "venuesDetails": [
+    {
+      "id": 12321,
+      "venueId": 1,
+      "location": {
+        "postalCode": "38-700",
+        "name": "ustrzyki dolne"
+      },
+      "pricePerNightInEUR": 20.94,
+      "numberOfReviews": 143,
+      "capacity": 4,
+      "name": "enchanted hut",
+      "albumId": 1,
+      "description": "Enchanted Hut is a place located in Ustrzyki Dolne, next to the Lake Of Mountain Magic. The hut is situated among other cottages that bring with them an amazing atmosphere of old times, as the oldest one was built in the 17th century. But take it easy, the Enchanted Hut is only stylized as old. You will find here all the amenities you need for a comfortable rest. Perfect for nature fans, who are not fans of survival atmosphere.",
+      "features": {
+        "generalAmenities": [
+          "fireplace",
+          "speakers",
+          "WiFi",
+          "restaurant",
+          "bar",
+          "pool",
+          "jacuzzi",
+          "garden",
+          "fitness center",
+          "24h reception",
+          "karaoke",
+          "outdoor music",
+          "indoor music",
+          "library",
+          "pet friendly",
+          "playground",
+          "parking"
+        ],
+        "roomAmenities": [
+          "kitchen facilities",
+          "bathroom facilities",
+          "hypoallergic bedding",
+          "TV",
+          "safe"
+        ],
+        "neighbourhoods": [
+          "lake",
+          "forest",
+          "mountains",
+          "sea",
+          "national park",
+          "park",
+          "mall",
+          "zoo",
+          "church",
+          "old town",
+          "historical monument",
+          "museum",
+          "theatre",
+          "cinema",
+          "amusement park",
+          "restaurant"
+        ],
+        "handicapAccesibility": [
+          "wheelchair friendly",
+          "blind friendly",
+          "deaf friendly",
+          "short-grown friendly"
+        ]
+      },
+      "sleapingDetails": {
+        "maxCapacity": 8,
+        "amoutOfBeds": 4
+      },
+      "checkInHour": "12pm",
+      "checkOutHour": "10am",
+      "distanceFromCityCenterInKM": 5,
+      "contactDetails": {
+        "phone": "503857209",
+        "email": "enchanted_hut@gmail.com"
+      }
+    }
+  ]
 }
-],
-"venuesDetails": [
-{
-"id": 12321,
-"venueId": 1, // pointer to the entities from venues array
-"location": {
-"postalCode": "38-700",
-"name": "ustrzyki dolne"
-},
-"pricePerNightInEUR": 20.94, // Prices are in euro, it's up to you to evaluate it to PLN, use any free currency exchange API, example: https://exchangeratesapi.io/
-"rating": 4.8,
-"numberOfReviews": 143,
-"capacity": 4,
-"name": "enchanted hut",
-"albumId": 1,  // id of the album that matches with albumId in /photos endpoint - https://jsonplaceholder.typicode.com/photos
-"description": "Enchanted Hut is a place located in Ustrzyki Dolne, next to the Lake Of Mountain Magic. The hut is situated among other cottages that bring with them an amazing atmosphere of old times, as the oldest one was built in the 17th century. But take it easy, the Enchanted Hut is only stylized as old. You will find here all the amenities you need for a comfortable rest. Perfect for nature fans, who are not fans of survival atmosphere.",
-"features": [
-"kitchen facilities",
-"bathroom facilities",
-"fireplace",
-"hypoallergic bedding",
-"speakers",
-"TV",
-"WiFi",
-"pet friendly",
-"parking",
-"lake and mountains nearby"
-],
-"sleapingDetails": {
-"maxCapacity": 8,
-"amoutOfBeds": 4
-},
-"checkInHour": "12pm",
-"checkOutHour": "10am",
-"distanceFromCityCenterInKM": 5,
-"contactDetails": {
-"phone": "503857209",
-"email": "enchanted_hut@gmail.com"
-}
-}
-],

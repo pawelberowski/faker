@@ -3,31 +3,59 @@ import { UniqueEnforcer } from "enforce-unique";
 
 const uniqueEnforcerNumber = new UniqueEnforcer();
 
-const listOfFeatures = [
-  "kitchen facilities",
-  "bathroom facilities",
-  "fireplace",
-  "hypoallergic bedding",
-  "speakers",
-  "TV",
-  "WiFi",
-  "restaurant",
-  "bar",
-  "pool",
-  "jacuzzi",
-  "garden",
-  "fitness center",
-  "24h reception",
-  "karaoke",
-  "outdoor music",
-  "indoor music",
-  "library",
-  "pet friendly",
-  "playground",
-  "parking",
-  "lake and mountains nearby",
-  "sea nearby",
-];
+const amenities = {
+  generalAmenities: [
+    "fireplace",
+    "speakers",
+    "WiFi",
+    "restaurant",
+    "bar",
+    "pool",
+    "jacuzzi",
+    "garden",
+    "fitness center",
+    "24h reception",
+    "karaoke",
+    "outdoor music",
+    "indoor music",
+    "library",
+    "pet friendly",
+    "playground",
+    "parking",
+  ],
+  roomAmenities: [
+    "kitchen facilities",
+    "bathroom facilities",
+    "hypoallergic bedding",
+    "TV",
+    "safe",
+  ],
+  neighbourhoods: [
+    "lake",
+    "forest",
+    "mountains",
+    "sea",
+    "national park",
+    "park",
+    "mall",
+    "zoo",
+    "church",
+    "old town",
+    "historical monument",
+    "museum",
+    "theatre",
+    "cinema",
+    "amusement park",
+    "restaurant",
+  ],
+  handicapAccesibility: [
+    "wheelchair friendly",
+    "blind friendly",
+    "deaf friendly",
+    "short-grown friendly",
+  ],
+};
+
 function generateUniqueIntegers(number, min, max) {
   const numbers = Array.from({ length: number }).map(() => {
     return uniqueEnforcerNumber.enforce(() => {
@@ -56,7 +84,7 @@ function createVenue(id) {
   return venue;
 }
 
-function createVenueDetails(venue, id, features) {
+function createVenueDetails(venue, id, amenities) {
   const venueDetails = {
     id: id,
     venueId: venue.id,
@@ -68,7 +96,24 @@ function createVenueDetails(venue, id, features) {
     name: venue.name,
     albumId: venue.albumId,
     description: faker.lorem.sentences({ min: 2, max: 7 }),
-    features: faker.helpers.arrayElements(features, { min: 3, max: 12 }),
+    features: {
+      generalAmenities: faker.helpers.arrayElements(
+        amenities.generalAmenities,
+        { min: 3, max: amenities.generalAmenities.length },
+      ),
+      roomAmenities: faker.helpers.arrayElements(amenities.roomAmenities, {
+        min: 1,
+        max: amenities.roomAmenities.length,
+      }),
+      neighbourhoods: faker.helpers.arrayElements(amenities.neighbourhoods, {
+        min: 3,
+        max: amenities.neighbourhoods.length,
+      }),
+      handicapAccesibility: faker.helpers.arrayElements(
+        amenities.handicapAccesibility,
+        { min: 0, max: amenities.handicapAccesibility.length },
+      ),
+    },
     sleepingDetails: {
       maxCapacity: venue.capacity,
       amountOfBeds: faker.number.int({
@@ -96,11 +141,7 @@ export function generateData(venuesNumber) {
   const venuesDetails = [];
   for (let i = 1; i <= venuesNumber; i++) {
     const venue = createVenue(i);
-    const venueDetails = createVenueDetails(
-      venue,
-      idForDetails[i],
-      listOfFeatures,
-    );
+    const venueDetails = createVenueDetails(venue, idForDetails[i], amenities);
     venues.push(venue);
     venuesDetails.push(venueDetails);
   }

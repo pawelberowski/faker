@@ -1,4 +1,4 @@
-import { generateData } from "./generateData.js";
+import { generateData } from "./generateData.ts";
 import * as fs from "fs";
 
 const testData = generateData(100);

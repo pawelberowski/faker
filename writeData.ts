@@ -1,5 +1,5 @@
-import { generateData } from "./generateData.ts";
 import * as fs from "fs";
+import { generateData } from "./generateData";
 
 const testData = generateData(100);
 const jasonString = JSON.stringify(testData);

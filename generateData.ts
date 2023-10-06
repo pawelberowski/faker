@@ -1,9 +1,13 @@
 import { faker } from "@faker-js/faker";
 import { UniqueEnforcer } from "enforce-unique";
+import { Amenity } from "./interfaces/Amenity";
+import { Venue } from "./interfaces/Venue";
+import { VenueDetails } from "./interfaces/VenueDetails";
+import { VenuesData } from "./interfaces/VenuesData";
 
 const uniqueEnforcerNumber = new UniqueEnforcer();
 
-const amenities: object = {
+const amenities: Amenity = {
   generalAmenities: [
     "fireplace",
     "speakers",
@@ -69,7 +73,7 @@ function generateUniqueIntegers(number: number, min: number, max: number) {
 }
 
 function createVenue(id: number) {
-  const venue: object = {
+  const venue: Venue = {
     id: id,
     location: {
       postalCode: faker.location.zipCode("##-###"),
@@ -84,8 +88,8 @@ function createVenue(id: number) {
   return venue;
 }
 
-function createVenueDetails(venue, id: number, amenities) {
-  const venueDetails = {
+function createVenueDetails(venue: Venue, id: number, amenities: Amenity) {
+  const venueDetails: VenueDetails = {
     id: id,
     venueId: venue.id,
     location: venue.location,
@@ -136,16 +140,16 @@ function createVenueDetails(venue, id: number, amenities) {
   return venueDetails;
 }
 export function generateData(venuesNumber: number) {
-  const idForDetails = generateUniqueIntegers(100, 1, 20000);
+  const idForDetails: number[] = generateUniqueIntegers(100, 1, 20000);
   const venues = [];
   const venuesDetails = [];
-  for (let i = 1; i <= venuesNumber; i++) {
+  for (let i: number = 1; i <= venuesNumber; i++) {
     const venue = createVenue(i);
     const venueDetails = createVenueDetails(venue, idForDetails[i], amenities);
     venues.push(venue);
     venuesDetails.push(venueDetails);
   }
-  const data: object = {
+  const data: VenuesData = {
     venues: venues,
     venuesDetails: venuesDetails,
   };

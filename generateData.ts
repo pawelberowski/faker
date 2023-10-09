@@ -155,3 +155,5 @@ export function generateData(venuesNumber: number) {
   };
   return data;
 }
+
+generateData(1);

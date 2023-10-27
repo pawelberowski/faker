@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "start": "ts-node ./writeData.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "enforce-unique": "^1.1.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",

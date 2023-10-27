@@ -1,4 +1,4 @@
-import { LocationDetails } from "./Location";
+import { LocationDetails } from "./LocationDetails";
 
 export interface Venue {
   id: number;

@@ -1,5 +1,5 @@
 import { Amenity } from "./Amenity";
-import { LocationDetails } from "./Location";
+import { LocationDetails } from "./LocationDetails";
 
 interface SleepingDetails {
   maxCapacity: number;

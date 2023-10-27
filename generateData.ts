@@ -61,7 +61,7 @@ const amenities: Amenity = {
 };
 
 function generateUniqueIntegers(number: number, min: number, max: number) {
-  const numbers: number[] = Array.from({ length: number }).map(() => {
+  return Array.from({ length: number }).map(() => {
     return uniqueEnforcerNumber.enforce(() => {
       return faker.number.int({
         min: min,
@@ -69,7 +69,6 @@ function generateUniqueIntegers(number: number, min: number, max: number) {
       });
     });
   });
-  return numbers;
 }
 
 function createVenue(id: number) {
@@ -78,6 +77,10 @@ function createVenue(id: number) {
     location: {
       postalCode: faker.location.zipCode("##-###"),
       name: faker.location.city(),
+      coordinates: {
+        latitude: faker.location.latitude(),
+        longitude: faker.location.longitude(),
+      },
     },
     pricePerNightInEUR: faker.commerce.price(),
     rating: faker.number.float({ min: 1, max: 5, precision: 0.1 }),
